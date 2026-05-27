@@ -1,0 +1,49 @@
+{{ 'bottom-drawer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'bottom-drawer.js' | asset_url }}" defer></script>
+
+<div id="compare-drawer" class="compare-drawer" style="display: none;">
+  <div class="compare-drawer-wrapper">
+    <div class="drawer-handle" id="drawer-toggle">
+      <img src="{{ 'icon-minus.svg' | asset_url }}" alt="Company Logo" width="200" height="50">
+    </div>
+
+    <div id="compare-drawer-items" class="compare-drawer-items"></div>
+
+    <div class="compare-drawer-actions">
+      <a href="/pages/comparaison" class="button button-compare-drawer">Comparer maintenant</a>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tiroir de Comparaison",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenu & Navigation"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Comparer maintenant"
+    },
+    {
+      "type": "url",
+      "id": "compare_page_url",
+      "label": "Page de comparaison"
+    },
+    {
+      "type": "header",
+      "content": "Style Graphique"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tiroir Flottant (Bottom)"
+    }
+  ]
+}
+{% endschema %}

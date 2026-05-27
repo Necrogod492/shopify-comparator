@@ -1,0 +1,122 @@
+.compare-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #e6f7ff;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  padding-bottom: 15px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.compare-drawer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 10px;
+
+  .drawer-handle {
+    background: #7393B3;
+    width: 100%;
+
+    img {
+      height: 30px;
+    }
+  }
+}
+
+.compare-drawer-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  overflow-x: auto;
+  height: 70px;
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.is-minimized {
+  transform: translateY(70%);
+}
+
+.drawer-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 6px;
+  min-width: 180px;
+}
+
+.drawer-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.drawer-item-title {
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+
+.drawer-item-remove {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-drawer-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .button-compare-drawer {
+    background: #7393B3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+  }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .compare-drawer-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .compare-drawer-actions {
+    justify-content: space-between;
+  }
+}
