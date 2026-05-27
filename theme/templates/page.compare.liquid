@@ -1,0 +1,28 @@
+{{ 'page-compare.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'page-compare.js' | asset_url }}" defer="defer"></script>
+
+<div class="page-width container">
+  <div class="rte">
+    {{ page.content }}
+  </div>
+
+  <div id="compare-empty-state" class="compare-empty-state text-center" style="display: flex;">
+    <img src="{{ 'icon-no-results.svg' | asset_url }}" alt="Company Logo" width="200" height="50">
+    <p class="empty-message">Votre liste de comparaison est vide pour le moment.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="button button--primary redirect-btn">
+      Découvrir nos produits
+    </a>
+  </div>
+
+  <div id="compare-table-container" class="compare-table-container" style="display: none;">
+      <div id="compare-table" class="compare-table">
+
+      </div>
+
+      <div style="text-align: center; margin: 100px auto;">
+        <button id="clear-compare-btn">
+            ✓ Vider la comparaison
+        </button>
+      </div>
+  </div>
+</div>
