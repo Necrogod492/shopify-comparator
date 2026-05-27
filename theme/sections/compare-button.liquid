@@ -1,0 +1,48 @@
+{{ 'compare-button.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'compare-button.js' | asset_url }}" defer></script>
+<script src="{{ 'sweetalert2.js' | asset_url }}" defer></script>
+
+<div class="compare-wrapper" style="margin-top: {{ section.settings.margin_top }}px;">
+  <button 
+    type="button" 
+    class="button compare-button"
+    id="compare-button"
+    data-product-id="{{ product.id }}"
+    data-product-title="{{ product.title  }}"
+    data-product-handle="{{ product.handle }}"
+    data-product-image="{{ product.featured_image }}"
+    data-product-price="{{ product.price | money }}"
+  >
+    {{ section.settings.label }}
+  </button>
+</div>
+
+{% schema %}
+{
+  "name": "Bouton de Comparaison",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Texte du bouton",
+      "default": "Ajouter au comparateur"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge supérieure",
+      "default": 10
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bouton de Comparaison"
+    }
+  ]
+}
+{% endschema %}
